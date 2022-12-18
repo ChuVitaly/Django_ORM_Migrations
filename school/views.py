@@ -1,3 +1,26 @@
+from django.http import HttpResponse, request
 from django.shortcuts import render
 
-# Create your views here.
+from school.models import Teacher, Student
+
+
+
+from django.views.generic import ListView
+from django.shortcuts import render
+
+from .models import Student
+
+
+def students_list(request):
+    object_list = Student.objects.all()
+    template = 'school/students_list.html'
+    context = {
+        'header': 'Список студентов',
+        'object_list': object_list
+    }
+
+    # используйте этот параметр для упорядочивания результатов
+    # https://docs.djangoproject.com/en/2.2/ref/models/querysets/#django.db.models.query.QuerySet.order_by
+    # ordering = 'group'
+
+    return render(request, template, context)
