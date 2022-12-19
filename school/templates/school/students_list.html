@@ -4,7 +4,7 @@
 {% block title %}Список учеников{% endblock %}
 {% block content %}
 
-<h1>{{ header }}</h1>
+<h2>{{ header_students }}</h2>
 <div class="row">
   <ul>
   {% for student in object_list %}
@@ -12,4 +12,9 @@
   {% endfor %}
   </ul>
 </div>
+<h2>{{ header_teachers }}</h2>
+
+<!--  {% for teacher in student.teachers.all %}-->
+<!--  <p>{{ teacher.name }}: {{ teacher.subject }}</p>-->
+<!--  {% endfor %}-->
 {% endblock %}
