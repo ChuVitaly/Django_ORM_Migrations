@@ -13,3 +13,6 @@ class StudentAdmin(admin.ModelAdmin):
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'subject']
     list_filter = ['subject']
+
+
+
