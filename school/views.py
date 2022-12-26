@@ -13,10 +13,11 @@ from .models import Student
 
 def students_list(request):
     object_list = Student.objects.all()
+    for student in object_list:
+        student.teachers.all = student.teachers.all()
     template = 'school/students_list.html'
-    # students = Student.object.filter(students=teacher).order_by('teachers')
     context = {
-        'header_students': 'Список студентов',
+        'header_students': 'Список учеников школы',
         'header_teachers': 'Список учителей студентов',
         'object_list': object_list,
         # 'student': students
@@ -26,3 +27,15 @@ def students_list(request):
 #     # ordering = 'group'
 #
     return render(request, template, context)
+
+# students = Student.objects.all()
+# for student in students:
+#     print(student.name)
+#     for teacher in student.teachers.all():
+#     # teacher = student.teachers.all()
+#     # print(student.name)
+#         print(teacher.name, '->', teacher.subject)
+    # print(teacher.name, '->', teacher.subject)
+
+
+

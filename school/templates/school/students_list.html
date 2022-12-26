@@ -6,15 +6,21 @@
 
 <h2>{{ header_students }}</h2>
 <div class="row">
-  <ul>
-  {% for student in object_list %}
-    <li>{{ student.name }} | {{ student.group }} <br> Преподаватель: {{ student.teacher.name }} | {{ student.teacher.subject }}</li>
-  {% endfor %}
-  </ul>
-</div>
-<h2>{{ header_teachers }}</h2>
 
-<!--  {% for teacher in student.teachers.all %}-->
-<!--  <p>{{ teacher.name }}: {{ teacher.subject }}</p>-->
-<!--  {% endfor %}-->
+  {% for student in object_list %}
+    <li class="list-group-item text-secondary">{{ student.name }} <span>Класс:</span> {{ student.group }}</li>
+  {% endfor %}
+
+</div>
+<div>
+<h2>{{ header_teachers }}</h2>
+  {% for student in object_list %}
+  <h5 class="card-title text-primary">Школьник: {{student.name}}</h5>
+     {% for teacher in student.teachers.all %}
+     <h6>Преподаватель: {{teacher.name}}: {{ teacher.subject }}</h6>
+     {% endfor %}
+  <br>
+  {% endfor %}
+
+  </div>
 {% endblock %}
